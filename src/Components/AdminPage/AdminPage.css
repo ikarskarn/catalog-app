@@ -1,0 +1,18 @@
+* {
+    box-sizing: border-box;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.admin-page {
+    color: white;
+    z-index: 10;
+    position: absolute;
+}
+
+.admin-page > p {
+    color: white;
+    font-size: 18px;
+}

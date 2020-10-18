@@ -1,0 +1,62 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1em;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.top-banner {
+    padding-top: 41px;
+}
+
+.top-banner > header {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 20% 20% 15% 15%;
+    font-size: 28px;
+}
+
+h1 {
+    color: white;
+    z-index: 2;
+    margin-bottom: 10px;
+    font-family: 
+}
+
+h2 {
+    color: #2095d4;
+    z-index: 3;
+    margin-top: 0px;
+    font-size: 20px;
+}
+
+.background-video {
+    position: fixed;
+    width: 100%;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    object-fit: cover;
+    transform: "translate(-50%, -50%)";
+    z-Index: "-2";
+}
+
+.cover {
+    position: fixed; /* Sit on top of the page content */
+    width: 100%; /* Full width (cover the whole page) */
+    height: 100%; /* Full height (cover the whole page) */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.7); /* Black background with opacity */
+    z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
+}

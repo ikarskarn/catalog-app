@@ -1,0 +1,41 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-size: 1em;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: flex-start;
+    padding: 20px 0px 20px 0px;
+    background-color: #1771a1;
+    border-bottom: 1px solid white;
+    position: fixed;
+    width: 100%;
+    font-family: 'Roboto', sans-serif;
+}
+
+.nav-home, .nav-catalog, .nav-admin {
+    padding: 10px 10px 10px 10px;
+    font-size: 16px;
+    color: white;
+    border-right: white solid 2px;
+}
+
+.nav-home:hover, .nav-catalog:hover, .nav-admin:hover {
+    background-color: rgba(211, 211, 211, 0.25);
+}
+
+.rel {
+    position: relative;
+}
+
+.cover {
+    
+}

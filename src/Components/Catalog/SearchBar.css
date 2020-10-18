@@ -1,0 +1,36 @@
+/* Style the search field */
+form.catalog-search input[type=text] {
+    padding: 10px;
+    font-size: 17px;
+    border: 1px solid grey;
+    width: 60%;
+    background: lightgrey;
+    border-radius: 10px;
+    height: 50px;
+    margin: 0px 5px 0px 0px;
+    outline: none;
+}
+
+form.catalog-search input:focus {
+    background-color: #f1f1f1;
+}
+
+form.catalog-search button {
+    padding: 10px;
+    font-size: 18px;
+    border: 1px solid black;
+    width: 20%;
+    height: 50px;
+    margin: 0px 0px 0px 5px;
+}
+
+form.catalog-search button:hover {
+    background-color: #862633;
+	color: white; 
+}
+
+.catalog-search {
+    display: flex;
+    justify-content: center;
+    vertical-align: middle;
+}
