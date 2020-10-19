@@ -8,7 +8,31 @@ class Catalog extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            query: ''
+            query: '',
+            id: {
+                value: 0,
+            },
+            category: {
+                value: 0,
+            },
+            title: {
+                touched: false,
+                value: '',
+            },
+            courseCode: {
+                touched: false,
+                value: '',
+            },
+            learningTrack: {
+                value: '',
+            },
+            certification: {
+                value: '',
+            },
+            description: {
+                touched: false,
+                value: '',
+            },
         }
     }
 
@@ -21,6 +45,7 @@ class Catalog extends React.Component {
 
     render() {
         const store = this.context.courses;
+        console.log(store.courses.length);
         return (
             <div className="App-list">
                 <SearchBar

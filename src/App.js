@@ -13,27 +13,25 @@ class App extends React.Component {
 	state = {
 		courses: STORE,
 		error: null,
+		addCourse: courses => {
+			this.setState({
+				courses: [ ...this.state.courses, courses ],
+			})
+		},
+		deleteCourse: courseID => {
+			const newCourses = this.state.bookmarks.filter(c => 
+				c.id !== courseID
+			)
+			this.setState({
+				courses: newCourses
+			})
+		}
 	};
 
 	setCourses = courses => {
 		this.setState({
 			courses,
 			error: null,
-		})
-	}
-
-	addCourse = courses => {
-		this.setState({
-			courses: [ ...this.state.courses, courses ],
-		})
-	}
-
-	deleteCourse = courseID => {
-		const newCourses = this.state.bookmarks.filter(c => 
-			c.id !== courseID
-		)
-		this.setState({
-			courses: newCourses
 		})
 	}
 
@@ -50,7 +48,7 @@ class App extends React.Component {
 			}
 			return res.json()
 		})
-		.then(this.setCourses)
+		.then(this.state.setCourses)
 		.catch(error => { 
 			console.error(error)
 			this.setState({ error })
@@ -60,8 +58,8 @@ class App extends React.Component {
 	render() {
 		const contextValue = {
 			courses: this.state.courses,
-			addCourse: this.addCourse,
-			deleteCourse: this.deleteCourse,
+			addCourse: this.state.addCourse,
+			deleteCourse: this.state.deleteCourse,
 		}
 		return (
 			<main className='App'>

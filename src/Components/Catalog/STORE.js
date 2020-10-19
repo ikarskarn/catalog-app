@@ -97,6 +97,24 @@ const STORE = {
     ],
     courses: [
         {
+            id: 1,
+            category: 6,
+            title: 'Classroom Setup to Increase Student Engagement in Online Classes',
+            courseCode: 'currently unavailable',
+            learningTrack: 'none',
+            certification: 'none',
+            description: 'Teaching online is necessary for College faculty today, and the need for it will only grow over time. At CPCC, statistics indicate that if “online” was a campus, it would be one of the largest campuses at the College. Still, many teachers and students feel that an online class cannot offer the same level of interaction and engagement that a seated class can offer. Lindy Hues has been teaching online since 2012, and has learned some successful strategies to offer an online learning experience that is closer to a seated classroom environment. In this presentation, she will share some examples from the field and offer advice on successful online teaching techniques. Topics will include course setup, teacher engagement techniques, and strategies to increase student engagement.'
+        },
+        {
+            id: 2,
+            category: 7,
+            title: 'Pandemic-Proof Course Design',
+            courseCode: 'currently unavailable',
+            learningTrack: 'none',
+            certification: 'none',
+            description: 'Learn how to design your courses to provide the same level of quality and consistency regardless of format or a change in the assigned instructor. This course provides tips for making your assignments clear and easy to engage for both students and facutly should you need to hand off a course to someone else on a short timeline.   '
+        },
+        {
             id: 3,
             category: 7,
             title: 'Brightspace Basics and Beyond',
@@ -104,6 +122,24 @@ const STORE = {
             learningTrack: 'none',
             certification: 'none',
             description: 'Description for this course is Pending.'
+        },
+        {
+            id: 4,
+            category: 7,
+            title: `Don't "flip" out:  Transforming your traditional classroom to a flipped classroom`,
+            courseCode: 'currently unavailable',
+            learningTrack: 'none',
+            certification: 'none',
+            description: 'This course will discuss how effective "flipping" your classroom can be, how you can transform your classroom into a "flipped" classroom, and how your students can excel in a "flipped" classroom.'
+        },
+        {
+            id: 5,
+            category: 7,
+            title: 'VoiceThread for Online Courses',
+            courseCode: 'currently unavailable',
+            learningTrack: 'none',
+            certification: 'none',
+            description: 'VoiceThread is a Cloud operation that does not require software to install.  It is purchased by the institution and is free to your students.  Students can operate this application on their computers, iPads, or cell phones.  This course will show you how to integrate this operation into your online courses, help you develop useful content that will create interaction between the students as well as faculty, and how to build rubrics into your teaching shell to grade assignments.'
         },
         {
             id: 6,
@@ -122,6 +158,15 @@ const STORE = {
             learningTrack: 'none',
             certification: 'none',
             description: 'Description for this course is Pending'
+        },
+        {
+            id: 8,
+            category: 5,
+            title: 'The Perfect Match: Aligning your course',
+            courseCode: 'currently unavailable',
+            learningTrack: 'Teaching Essentials and Assessment as Learning',
+            certification: 'none',
+            description: 'The foundation of effective course design includes aligning outcomes, activities and assessment. This course is part of the Teaching Essential and Assessment as Learning Track.'
         },
         {
             id: 9,
@@ -284,6 +329,15 @@ const STORE = {
             learningTrack: 'none',
             certification: 'none',
             description: 'Description for this course is Pending'
+        },
+        {
+            id: 27,
+            category: 7,
+            title: 'Active Learning Strategies',
+            courseCode: 'currently unavailable',
+            learningTrack: 'Teaching Essentials and Assessment as Learning',
+            certification: 'none',
+            description: 'Go beyond the lecture! This important course explores student-centered learning activities during seated or synchrononous live classes. This course is part of the Teaching Essentials and Assessment as Learning Track.'
         },
         {
             id: 28,
@@ -545,60 +599,6 @@ const STORE = {
             learningTrack: 'Teaching Essentials and Assessment as Learning',
             certification: 'none',
             description: 'This introductory course explores how to create a rubric from scratch and provides resources to adapt an existing rubric. This course is part of the Teaching Essentials and Assessment as Learning Track.'
-        },
-        {
-            id: 57,
-            category: 7,
-            title: 'Active Learning Strategies',
-            courseCode: 'currently unavailable',
-            learningTrack: 'Teaching Essentials and Assessment as Learning',
-            certification: 'none',
-            description: 'Go beyond the lecture! This important course explores student-centered learning activities during seated or synchrononous live classes. This course is part of the Teaching Essentials and Assessment as Learning Track.'
-        },
-        {
-            id: 58,
-            category: 5,
-            title: 'The Perfect Match: Aligning your course',
-            courseCode: 'currently unavailable',
-            learningTrack: 'Teaching Essentials and Assessment as Learning',
-            certification: 'none',
-            description: 'The foundation of effective course design includes aligning outcomes, activities and assessment. This course is part of the Teaching Essential and Assessment as Learning Track.'
-        },
-        {
-            id: 59,
-            category: 7,
-            title: `Don't "flip" out:  Transforming your traditional classroom to a flipped classroom`,
-            courseCode: 'currently unavailable',
-            learningTrack: 'none',
-            certification: 'none',
-            description: 'This course will discuss how effective "flipping" your classroom can be, how you can transform your classroom into a "flipped" classroom, and how your students can excel in a "flipped" classroom.'
-        },
-        {
-            id: 60,
-            category: 7,
-            title: 'VoiceThread for Online Courses',
-            courseCode: 'currently unavailable',
-            learningTrack: 'none',
-            certification: 'none',
-            description: 'VoiceThread is a Cloud operation that does not require software to install.  It is purchased by the institution and is free to your students.  Students can operate this application on their computers, iPads, or cell phones.  This course will show you how to integrate this operation into your online courses, help you develop useful content that will create interaction between the students as well as faculty, and how to build rubrics into your teaching shell to grade assignments.'
-        },
-        {
-            id: 61,
-            category: 6,
-            title: 'Classroom Setup to Increase Student Engagement in Online Classes',
-            courseCode: 'currently unavailable',
-            learningTrack: 'none',
-            certification: 'none',
-            description: 'Teaching online is necessary for College faculty today, and the need for it will only grow over time. At CPCC, statistics indicate that if “online” was a campus, it would be one of the largest campuses at the College. Still, many teachers and students feel that an online class cannot offer the same level of interaction and engagement that a seated class can offer. Lindy Hues has been teaching online since 2012, and has learned some successful strategies to offer an online learning experience that is closer to a seated classroom environment. In this presentation, she will share some examples from the field and offer advice on successful online teaching techniques. Topics will include course setup, teacher engagement techniques, and strategies to increase student engagement.'
-        },
-        {
-            id: 62,
-            category: 7,
-            title: 'Pandemic-Proof Course Design',
-            courseCode: 'currently unavailable',
-            learningTrack: 'none',
-            certification: 'none',
-            description: 'Learn how to design your courses to provide the same level of quality and consistency regardless of format or a change in the assigned instructor. This course provides tips for making your assignments clear and easy to engage for both students and facutly should you need to hand off a course to someone else on a short timeline.   '
         },
     ],
 }
