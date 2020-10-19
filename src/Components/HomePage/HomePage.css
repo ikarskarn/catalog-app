@@ -61,14 +61,16 @@ h1 {
     width: 200px;
     height: 200px;
     border: 1px solid white;
-    background-color: lightgrey;
+    background-color: #1771A1;
+    color: white;
     border-radius: 10px;
     box-shadow: rgba(255, 255, 255, 0.199) 3px 3px;
     font-size: 22px;
+    text-decoration: none;
 }
 
 .section-split > a:hover {
-    background-color: #1771A1;
+    background-color:  #ff7b00;
     color: white;
 }
 

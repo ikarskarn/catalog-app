@@ -7,12 +7,43 @@ const Required = () => (
 	<span className='AddBookmark__required'>*</span>
 )
 
-export default class AdminPage extends React.Component {
+class AdminPage extends React.Component {
     static contextType = CatalogContext;
 
     state = {
         pageTitle: 'What would you like to do?',
+        chooseForm: 'choose-form-section',
+        addCourse: 'add-course-section hidden',
+        deleteCourse: 'delete-course-section hidden',
         error: null,
+    }
+
+    handleClickCancel = () => {
+        this.props.history.push('/')
+    }
+
+    updatePageTitle = (str) => {
+        this.setState({
+            pageTitle: str,
+        })
+    }
+    
+    updateChooseForm = (str) => {
+        this.setState({
+            chooseForm: `choose-form-section ${str}`
+        })
+    }
+
+    updateAddCourse = (str) => {
+        this.setState({
+            addCourse: `add-course-section ${str}`
+        })
+    }
+
+    updateDeleteCourse = (str) => {
+        this.setState({
+            deleteCourse: `delete-course-section ${str}`
+        })
     }
 
     addNewCourse = () => {
@@ -27,37 +58,53 @@ export default class AdminPage extends React.Component {
 		console.log("Temp call ran");
     }
 
+    handleTopButton = (str) => {
+        this.updateChooseForm('hidden');
+                
+        if(str === 'create') {
+            this.updateAddCourse('');
+            this.updatePageTitle('Create New Course');
+        } else if (str === 'delete') {
+            this.updateDeleteCourse('');
+            this.updatePageTitle('Delete Course');
+        }
+    }
+
+    handleCancelButton = () => {
+        this.updateChooseForm('');
+        this.updateAddCourse('hidden');
+        this.updateDeleteCourse('hidden');
+        this.updatePageTitle('What would you like to do?');
+    }
+
     render() {
         const { error } = this.state;
         return (
             <div className="admin-page">
                 <h2>{this.state.pageTitle}</h2>
-                
-                <button 
-                    type='button'
-                    onClick={()=>this.addNewCourse()}
-                >
-                    Create New Course
-                </button>
-                
-                <button 
-                    type='button'
-                    onClick={()=>this.deleteCourse()}
-                >
-                    Delete a Course
-                </button>
-
-                <section className="add-course-section hidden">
+                <section className={this.state.chooseForm}>
+                    <button type='button' onClick={()=>this.handleTopButton('create')} >
+                        Create New Course
+                    </button>
+                    <button type='button' onClick={()=>this.handleTopButton('delete')} >
+                        Delete a Course
+                    </button>
+                </section>
+                <section className={this.state.addCourse}>
                     <form
                         className='add-course-form'
-                        onSubmit={()=>this.tempCall()}
+                        onSubmit={this.tempCall}
                     >
                         <div className='add-course-error' role='alert' >
                             {error && <p>{error.message}</p>}
                         </div>
                         
                         <div className="form-group">
-                            <label htmlFor="category">Category</label>
+                            <label htmlFor="category">
+                                Category
+                                {' '}
+                                <Required />
+                            </label>
                             <select
                                 className="course-category"
                                 name="category"
@@ -169,7 +216,7 @@ export default class AdminPage extends React.Component {
                             />
                         </div>
                         <div className='add-course-buttons'>
-                            <button type='button' onClick={this.handleClickCancel}>
+                            <button type='button' onClick={this.handleCancelButton}>
                                 Cancel
                             </button>
                             {' '}
@@ -179,10 +226,10 @@ export default class AdminPage extends React.Component {
                         </div>
                     </form>
                 </section>
-                <section className="delete-course-section hidden">
+                <section className={this.state.deleteCourse}>
                     <form
                         className='delete-course-form'
-                        onSubmit={()=>this.tempCall()}
+                        onSubmit={this.tempCall}
                     >
                         <div className='delete-course-error' role='alert' >
                             {error && <p>{error.message}</p>}
@@ -211,7 +258,7 @@ export default class AdminPage extends React.Component {
                             </div>
                         </div>
                         <div className='delete-course-buttons'>
-                            <button type='button' onClick={this.handleClickCancel}>
+                            <button type='button' onClick={this.handleCancelButton}>
                                 Cancel
                             </button>
                             {' '}
@@ -221,8 +268,9 @@ export default class AdminPage extends React.Component {
                         </div>
                     </form>
                 </section>
-
             </div>
         )
     }
 }
+
+export default AdminPage;

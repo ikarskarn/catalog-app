@@ -9,10 +9,73 @@ button:hover {
 .admin-page {
     color: white;
     z-index: 10;
-    position: absolute;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
 }
 
 .admin-page > p {
     color: white;
     font-size: 18px;
+}
+
+.choose-form-section > button {
+    padding: 30px;
+    margin-bottom: 20px;
+    width: 200px;
+    height: 200px;
+    border: 1px solid white;
+    background-color: #1771A1;
+    color: white;
+    border-radius: 10px;
+    box-shadow: rgba(255, 255, 255, 0.199) 3px 3px;
+    font-size: 22px;
+    text-decoration: none;
+    align-self: center;
+}
+
+.choose-form-section > button:hover {
+    background-color:  #ff7b00;
+    color: white;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    line-height: 24px;
+}
+
+.form-group > label {
+    margin-bottom: 10px;
+}
+
+.form-group > select, .form-group > input, .form-group > textarea {
+    height: 30px;
+    margin-bottom: 10px;
+    width: 80%;
+    align-self: center;
+}
+
+.form-group > textarea {
+    height: 100px;
+}
+
+.add-course-buttons > button, .delete-course-buttons > button {
+    height: 40px;
+    margin: 20px;
+    border-radius: 10px;
+    background-color:  #1771A1;
+    color: white;
+}
+
+.add-course-buttons > button:hover, .delete-course-buttons > button:hover {
+    background-color: #ff7b00;
+}
+
+.errorMessage {
+    color: red;
 }
