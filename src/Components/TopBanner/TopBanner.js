@@ -1,4 +1,3 @@
-import { render } from "@testing-library/react";
 import React from "react";
 import "./TopBanner.css";
 import BackgroundBanner from '../../Videos/backgroundBanner.mp4';
@@ -21,4 +20,3 @@ export default function TopBanner(props) {
         </div>
     );
 }
-

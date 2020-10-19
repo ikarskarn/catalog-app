@@ -1,11 +1,9 @@
 import React from 'react';
 import CourseDescriptions from './CourseDescriptions.js';
-import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import './Catalog.css';
 
 function CatalogSection(props) {
-    console.log("Empty: ", props.courses.length);
+    console.log(props.courses)
     return (
         <section className={`rel category-section ${props.courses.length > 0 ? '' : 'hidden'}`}>
             <div className='course-title'>
@@ -13,7 +11,7 @@ function CatalogSection(props) {
                     id={props.id}
                     className={`category-header`}
                 >
-                    <h3>{props.name}</h3>
+                    <h3>{props.title}</h3>
                 </header>
             </div>
 
@@ -22,8 +20,8 @@ function CatalogSection(props) {
                     <CourseDescriptions
                         key={course.id}
                         id={course.id}
-                        name={course.name}
-                        courseLink={`Course ID: ${course.courseLink}`}
+                        title={course.title}
+                        courseCode={`Course ID: ${course.courseCode}`}
                         learningTrack={`Learning Track: ${course.learningTrack}`}
                         certification={`Certification: ${course.certification}`}
                         description={course.description}

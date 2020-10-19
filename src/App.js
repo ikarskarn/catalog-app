@@ -6,11 +6,12 @@ import HomePage from './Components/HomePage/HomePage';
 import Catalog from './Components/Catalog/Catalog';
 import AdminPage from './Components/AdminPage/AdminPage';
 import CatalogContext from './CatalogContext';
-import Config from './config';
+import config from './config';
+import STORE from './Components/Catalog/STORE';
 
 class App extends React.Component {
 	state = {
-		courses: [],
+		courses: STORE,
 		error: null,
 	};
 
@@ -33,6 +34,26 @@ class App extends React.Component {
 		)
 		this.setState({
 			courses: newCourses
+		})
+	}
+
+	componentDidMount() {
+		fetch(config.API_ENDPOINT, {
+			method: 'GET',
+			headers: {
+				'content-type': 'application/json'
+			}
+		})
+		.then(res => {
+			if (!res.ok) {
+				return res.json().then(error => Promise.reject(error))
+			}
+			return res.json()
+		})
+		.then(this.setCourses)
+		.catch(error => { 
+			console.error(error)
+			this.setState({ error })
 		})
 	}
 

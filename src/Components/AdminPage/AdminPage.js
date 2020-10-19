@@ -1,6 +1,5 @@
 import React from 'react';
 import CatalogContext from '../../CatalogContext';
-import config from '../../config';
 import './AdminPage.css';
 
 const Required = () => (
@@ -10,16 +9,13 @@ const Required = () => (
 class AdminPage extends React.Component {
     static contextType = CatalogContext;
 
+    //#region State and State Updates
     state = {
         pageTitle: 'What would you like to do?',
         chooseForm: 'choose-form-section',
         addCourse: 'add-course-section hidden',
         deleteCourse: 'delete-course-section hidden',
         error: null,
-    }
-
-    handleClickCancel = () => {
-        this.props.history.push('/')
     }
 
     updatePageTitle = (str) => {
@@ -45,17 +41,14 @@ class AdminPage extends React.Component {
             deleteCourse: `delete-course-section ${str}`
         })
     }
-
+    //#endregion
+    
     addNewCourse = () => {
         console.log('add new course ran');
     }
 
     deleteCourse = () => {
         console.log('delete course ran');
-    }
-
-    tempCall = () => {
-		console.log("Temp call ran");
     }
 
     handleTopButton = (str) => {
@@ -79,6 +72,39 @@ class AdminPage extends React.Component {
 
     render() {
         const { error } = this.state;
+        const categoryOptions = this.context.courses.categories.map((category, i) => {
+            return(
+                <option 
+                    key={category.id}
+                    id={category.id}
+                    value={category.title}
+                >
+                    {category.title}
+                </option>
+            )
+        });
+        const learningTrackOptions = this.context.courses.learningTracks.map((track, i) => {
+            return(
+                <option 
+                    key={track.key}
+                    id={track.id}
+                    value={track.title}
+                >
+                    {track.title}
+                </option>
+            )
+        });
+        const courseOptions = this.context.courses.courses.map((course, i) => {
+            return(
+                <option 
+                    key={course.id}
+                    id={course.id}
+                    value={course.title}
+                >
+                    {course.title}
+                </option>
+            )
+        });
         return (
             <div className="admin-page">
                 <h2>{this.state.pageTitle}</h2>
@@ -93,7 +119,7 @@ class AdminPage extends React.Component {
                 <section className={this.state.addCourse}>
                     <form
                         className='add-course-form'
-                        onSubmit={this.tempCall}
+                        onSubmit={this.addNewCourse}
                     >
                         <div className='add-course-error' role='alert' >
                             {error && <p>{error.message}</p>}
@@ -116,14 +142,7 @@ class AdminPage extends React.Component {
                                 defaultValue={'default'}
                             >
                                 <option value="default" disabled>Choose a Folder</option>
-                                <option value="cat1">Faculty Engagement</option>
-                                <option value="cat2">Pedagogical Content Knowledge</option>
-                                <option value="cat3">Feedback and Assessment</option>
-                                <option value="cat4">Inclusive Pedagogy</option>
-                                <option value="cat5">Curriculum Alignment</option>
-                                <option value="cat6">Classroom Climate</option>
-                                <option value="cat7">Instructional Strategies</option>
-                                <option value="cat8">Faculty Adminstrative Processes</option>
+                                {categoryOptions}
                             </select>
                             <div id="category-constraint">Choose a Category</div>
                             <div className="errorMessage" id="category-error">
@@ -171,15 +190,7 @@ class AdminPage extends React.Component {
                                 defaultValue={'none'}
                             >
                                 <option value="none">None</option>
-                                <option value="accessibility">Online Accessibility</option>
-                                <option value="prime">OTC Prime</option>
-                                <option value="enrich">OTC Enrich</option>
-                                <option value="multimedia">OTC Multimedia</option>
-                                <option value="communcation">OTC Communication</option>
-                                <option value="engagement">OTC Engagement</option>
-                                <option value="foundations">Foundations for Teaching Online</option>
-                                <option value="essentials">Teaching Essentials</option>
-                                <option value="assessment">Assessment as Learning</option>
+                                {learningTrackOptions}
                             </select>
                             <div id="track-constraint">Choose a Learning Track</div>
                             <div className="errorMessage" id="track-error">
@@ -229,7 +240,7 @@ class AdminPage extends React.Component {
                 <section className={this.state.deleteCourse}>
                     <form
                         className='delete-course-form'
-                        onSubmit={this.tempCall}
+                        onSubmit={this.deleteCourse}
                     >
                         <div className='delete-course-error' role='alert' >
                             {error && <p>{error.message}</p>}
@@ -248,9 +259,8 @@ class AdminPage extends React.Component {
                                 defaultValue={'default'}
                             >
                                 <option value="default" disabled>Choose a Course</option>
-                                <option value="course1">Course 1</option>
-                                <option value="course2">Course 2</option>
-                                <option value="course3">Course 3</option>
+                                {courseOptions}
+
                             </select>
                             <div id="delete-constraint">Choose a Course</div>
                             <div className="errorMessage" id="delete-error">
