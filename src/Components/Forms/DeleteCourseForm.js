@@ -11,9 +11,7 @@ class DeleteCourseForm extends React.Component {
     //#region State and State Updates
     state = {
         error: null,
-        id: {
-            value: 0,
-        },
+        id: 0,
     }
 
     //#endregion
@@ -24,20 +22,27 @@ class DeleteCourseForm extends React.Component {
         this.props.updatePageTitle('What would you like to do?');
     }
 
-    handleSubmit = (e) => {
+    updateID = (e) => {
         e.preventDefault();
-        console.log('handle submit hit');
-        this.handleCancelButton();
+        console.log(e.target.value);
+        this.setState({
+            id: e.target.value,
+        })
+    }
+
+    handleDeleteCourseRequest = (e) => {
+        e.preventDefault();
+        this.context.deleteCourse(this.state.id);
     }
 
     render() {
         const { error } = this.state;
-        const courseOptions = this.context.courses.courses.map((course, i) => {
+        const courseOptions = this.context.courses.map((course) => {
             return(
                 <option 
                     key={course.id}
                     id={course.id}
-                    value={course.title}
+                    value={course.id}
                 >
                     {course.title}
                 </option>
@@ -47,7 +52,7 @@ class DeleteCourseForm extends React.Component {
             <section className={this.props.state.deleteCourse}>
                 <form
                     className='delete-course-form'
-                    onSubmit={(e)=>this.handleSubmit(e)}
+                    onSubmit={(e)=>this.handleDeleteCourseRequest(e)}
                 >
                     <div className='delete-course-error' role='alert' >
                         {error && <p>{error.message}</p>}
@@ -66,10 +71,11 @@ class DeleteCourseForm extends React.Component {
                             aria-label="Course To Delete"
                             aria-required="true"
                             aria-invalid="true"
-                            defaultValue={''}
+                            defaultValue={0}
                             required
+                            onChange={(e)=>this.updateID(e)}
                         >
-                            <option value="" disabled>Choose a Course</option>
+                            <option value={0} disabled>Choose a Course</option>
                             {courseOptions}
                         </select>
                     </div>

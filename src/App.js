@@ -6,26 +6,29 @@ import HomePage from './Components/HomePage/HomePage';
 import Catalog from './Components/Catalog/Catalog';
 import AdminPage from './Components/AdminPage/AdminPage';
 import CatalogContext from './CatalogContext';
-import config from './config';
 import STORE from './Components/Catalog/STORE';
 
 class App extends React.Component {
 	state = {
-		courses: STORE,
+		categories: STORE.categories,
+		learningTracks: STORE.learningTracks,
+		courses: STORE.courses,
 		error: null,
 		addCourse: courses => {
 			this.setState({
 				courses: [ ...this.state.courses, courses ],
 			})
 		},
-		deleteCourse: courseID => {
-			const newCourses = this.state.bookmarks.filter(c => 
-				c.id !== courseID
+		deleteCourse: id => {
+			console.log('before: ', this.state.courses);
+			const newCourses = this.state.courses.filter(nc => 
+				parseInt(nc.id) !== parseInt(id)
 			)
-			this.setState({
-				courses: newCourses
+ 			this.setState({
+				courses: newCourses,
 			})
-		}
+			console.log('after: ', this.state.courses);
+		},
 	};
 
 	setCourses = courses => {
@@ -35,32 +38,17 @@ class App extends React.Component {
 		})
 	}
 
-	componentDidMount() {
-		fetch(config.API_ENDPOINT, {
-			method: 'GET',
-			headers: {
-				'content-type': 'application/json'
-			}
-		})
-		.then(res => {
-			if (!res.ok) {
-				return res.json().then(error => Promise.reject(error))
-			}
-			return res.json()
-		})
-		.then(this.state.setCourses)
-		.catch(error => { 
-			console.error(error)
-			this.setState({ error })
-		})
-	}
-
 	render() {
 		const contextValue = {
+			categories: this.state.categories,
+			learningTracks: this.state.learningTracks,
 			courses: this.state.courses,
 			addCourse: this.state.addCourse,
 			deleteCourse: this.state.deleteCourse,
 		}
+		console.log(contextValue.categories);
+		console.log(contextValue.learningTracks);
+		console.log(contextValue.courses);
 		return (
 			<main className='App'>
 				<CatalogContext.Provider value={contextValue}>

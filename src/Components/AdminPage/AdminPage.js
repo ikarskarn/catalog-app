@@ -3,7 +3,6 @@ import CatalogContext from '../../CatalogContext';
 import './AdminPage.css';
 import AddCourseForm from '../Forms/AddCourseForm';
 import DeleteCourseForm from '../Forms/DeleteCourseForm';
-import config from '../../config';
 
 class AdminPage extends React.Component {
     static contextType = CatalogContext;
@@ -41,14 +40,6 @@ class AdminPage extends React.Component {
         })
     }
     //#endregion
-    
-    addNewCourse = () => {
-        console.log('add new course ran');
-    }
-
-    deleteCourse = () => {
-        console.log('delete course ran');
-    }
 
     handleTopButton = (str) => {
         this.updateChooseForm('hidden');
@@ -62,28 +53,6 @@ class AdminPage extends React.Component {
         }
     }
 
-    componentDidMount() {
-        fetch(`${config.API_ENDPOINT}/`, {
-			method: 'GET',
-			headers: {
-				'content-type': 'application/json'
-			}
-		})
-        .then(response => {
-            if(!response.ok) {
-                return response.json().then(error =>{
-                    throw error
-                })
-            }
-            return response.json();
-        })
-        .then(folders => {
-            this.setState({ folders })
-        })
-        .catch(error => {
-            console.error(error);
-        });
-    }
     render() {
         return (
             <div className="admin-page">

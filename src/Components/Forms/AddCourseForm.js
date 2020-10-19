@@ -11,30 +11,13 @@ class AddCourseForm extends React.Component {
     //#region State and State Updates
     state = {
         error: null,
-        id: {
-            value: 0,
-        },
-        category: {
-            value: 0,
-        },
-        title: {
-            touched: false,
-            value: '',
-        },
-        courseCode: {
-            touched: false,
-            value: '',
-        },
-        learningTrack: {
-            value: '',
-        },
-        certification: {
-            value: '',
-        },
-        description: {
-            touched: false,
-            value: '',
-        },
+        id: 0,
+        category: 0,
+        title: '',
+        courseCode: '',
+        learningTrack: '',
+        certification: '',
+        description: '',
     }
 
     //#endregion
@@ -45,30 +28,84 @@ class AddCourseForm extends React.Component {
         this.props.updatePageTitle('What would you like to do?');
     }
 
-    handleSubmit = (e) => {
+    handleAddCourseRequest = (e) => {
         e.preventDefault();
-        console.log('handle submit hit');
+        console.log(e);
+        const id = parseInt(this.context.courses.length + 1);
+        console.log("ID: ", id);
+        const category = this.state.category;
+        const title = this.state.title;
+        const courseCode = this.state.courseCode;
+        const learningTrack = this.state.learningTrack;
+        const certification = this.state.certification;
+        const description = this.state.description;
+        const newCourse = { id, category, title, courseCode, learningTrack, certification, description };
+        console.log("New Course: ", newCourse);
+        this.context.addCourse(newCourse);
+        this.handleCancelButton();
+    }
+
+    updateCategory = (e) => {
+        const category = e.target.value;
+        this.setState({
+            category
+        })
+    }
+
+    updateTitle = (e) => {
+        const title = e.target.value;
+        this.setState({
+            title
+        })
+    }
+
+    updateCourseCode = (e) => {
+        const courseCode = e.target.value;
+        this.setState({
+            courseCode
+        })
+    }
+
+    updateLearningTrack = (e) => {
+        const learningTrack = e.target.value;
+        this.setState({
+            learningTrack
+        })
+    }
+
+    updateCertification = (e) => {
+        const certification = e.target.value;
+        this.setState({
+            certification
+        })
+    }
+
+    updateDescription = (e) => {
+        const description = e.target.value;
+        this.setState({
+            description
+        })
     }
 
     render() {
         const { error } = this.state;
-        const categoryOptions = this.context.courses.categories.map((category, i) => {
+        const categoryOptions = this.context.categories.map((category) => {
             return(
                 <option 
                     key={category.id}
                     id={category.id}
-                    value={category.title}
+                    value={category.id}
                 >
                     {category.title}
                 </option>
             )
         });
-        const learningTrackOptions = this.context.courses.learningTracks.map((track, i) => {
+        const learningTrackOptions = this.context.learningTracks.map((track) => {
             return(
                 <option 
-                    key={track.key}
+                    key={track.id}
                     id={track.id}
-                    value={track.title}
+                    value={track.id}
                 >
                     {track.title}
                 </option>
@@ -79,7 +116,7 @@ class AddCourseForm extends React.Component {
             <section className={this.props.state.addCourse}>
                 <form
                     className='add-course-form'
-                    onSubmit={(e)=>this.handleSubmit(e)}
+                    onSubmit={(e)=>this.handleAddCourseRequest(e)}
                 >
                     <div className='add-course-error' role='alert' >
                         {error && <p>{error.message}</p>}
@@ -100,6 +137,7 @@ class AddCourseForm extends React.Component {
                             aria-invalid="true"
                             defaultValue={''}  
                             required
+                            onChange={e=>this.updateCategory(e)}
                         >
                             <option value='' disabled>Choose a Category</option>
                             {categoryOptions}
@@ -117,6 +155,7 @@ class AddCourseForm extends React.Component {
                             id='title'
                             placeholder='Course Title'
                             required
+                            onChange={e=>this.updateTitle(e)}
                         />
                     </div>
                     <div className="form-group">
@@ -131,6 +170,7 @@ class AddCourseForm extends React.Component {
                             id='course-code'
                             placeholder='Course Code'
                             required
+                            onChange={e=>this.updateCourseCode(e)}
                         />
                     </div>
                     <div className="form-group">
@@ -142,6 +182,7 @@ class AddCourseForm extends React.Component {
                             aria-label="Learning Track for Course"
                             aria-invalid="true"
                             defaultValue={'none'}
+                            onChange={e=>this.updateLearningTrack(e)}
                         >
                             <option value="none">None</option>
                             {learningTrackOptions}
@@ -156,6 +197,7 @@ class AddCourseForm extends React.Component {
                             aria-label="Certification for Course"
                             aria-invalid="true"
                             defaultValue={'none'}
+                            onChange={e=>this.updateCertification(e)}
                         >
                             <option value="none">None</option>
                             <option value="otc">Online Teaching Certification</option>
@@ -170,6 +212,7 @@ class AddCourseForm extends React.Component {
                             id='description'
                             placeholder='Add a Description'
                             required
+                            onChange={e=>this.updateDescription(e)}
                         />
                     </div>
                     <div className='add-course-buttons'>

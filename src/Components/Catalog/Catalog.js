@@ -9,30 +9,13 @@ class Catalog extends React.Component {
         super(props);
         this.state = {
             query: '',
-            id: {
-                value: 0,
-            },
-            category: {
-                value: 0,
-            },
-            title: {
-                touched: false,
-                value: '',
-            },
-            courseCode: {
-                touched: false,
-                value: '',
-            },
-            learningTrack: {
-                value: '',
-            },
-            certification: {
-                value: '',
-            },
-            description: {
-                touched: false,
-                value: '',
-            },
+            id: 0,
+            category: 0,
+            title: '',
+            courseCode: '',
+            learningTrack: '',
+            certification: '',
+            description: '',
         }
     }
 
@@ -44,8 +27,7 @@ class Catalog extends React.Component {
     }
 
     render() {
-        const store = this.context.courses;
-        console.log(store.courses.length);
+        const store = this.context;
         return (
             <div className="App-list">
                 <SearchBar

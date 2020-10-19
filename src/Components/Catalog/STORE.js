@@ -1,48 +1,40 @@
 const STORE = {
     categories: [
         {
-            key: 'categoryOne',
             id: 1,
             title: 'Faculty Engagement',
         },
         {
-            key: 'categoryTwo',
             id: 2,
             title: 'Pedagogical Content Knowledge',
             link: '#cat2',
         },
         {
-            key: 'categoryThree',
             id: 3,
             title: 'Feedback and Assessment',
             link: '#cat3',
         },
         {
-            key: 'categoryFour',
             id: 4,
             title: 'Inclusive Pedagogy',
             link: '#cat4',
         },
         {
-            key: 'categoryFive',
             id: 5,
             title: 'Curriculum Alignment',
             link: '#cat5',
         },
         {
-            key: 'categorySix',
             id: 6,
             title: 'Classroom Climate',
             link: '#cat6',
         },
         {
-            key: 'categorySeven',
             id: 7,
             title: 'Instructional Strategies',
             link: '#cat7',
         },
         {
-            key: 'categoryEight',
             id: 8,
             title: 'Faculty Administrative Processes',
             link: '#cat8',
@@ -50,48 +42,39 @@ const STORE = {
     ],
     learningTracks: [
         {
-            key: 'track1',
-            id: 'track1',
+            id: 1,
             title: 'Online Accessibility',
         },
         {
-            key: 'track2',
-            id: 'track2',
+            id: 2,
             title: 'OTC Prime',
         },
         {
-            key: 'track3',
-            id: 'track3',
+            id: 3,
             title: 'OTC Enrich',
         },
         {
-            key: 'track4',
-            id: 'track4',
+            id: 4,
             title: 'OTC Multimedia',
         },
         {
-            key: 'track5',
-            id: 'track5',
+            id: 5,
             title: 'OTC Communication',
         },
         {
-            key: 'track6',
-            id: 'track6',
+            id: 6,
             title: 'OTC Engagement',
         },
         {
-            key: 'track7',
-            id: 'track7',
+            id: 7,
             title: 'Foundations for Teaching Online',
         },
         {
-            key: 'track8',
-            id: 'track8',
+            id: 8,
             title: 'Teaching Essentials',
         },
         {
-            key: 'track9',
-            id: 'track9',
+            id: 9,
             title: 'Assessment as Learning',
         },
     ],

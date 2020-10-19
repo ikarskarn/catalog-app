@@ -3,7 +3,6 @@ import CourseDescriptions from './CourseDescriptions.js';
 import './Catalog.css';
 
 function CatalogSection(props) {
-    console.log(props.courses)
     return (
         <section className={`rel category-section ${props.courses.length > 0 ? '' : 'hidden'}`}>
             <div className='course-title'>
