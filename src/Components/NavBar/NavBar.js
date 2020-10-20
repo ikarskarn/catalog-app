@@ -1,12 +1,13 @@
 import React from 'react';
 import './NavBar.css';
+import { Link } from 'react-router-dom';
 
 export default function NavBar(props) {
     return(
         <nav role="navigation" className="nav-bar">
-            <a href="/" className="nav-home">Home</a>
-            <a href="/catalog" className="nav-catalog">Catalog</a>
-            <a href="/admin" className="nav-admin">Adminstration</a>
+            <Link to="/" className="nav-home">Home</Link>
+            <Link to="/catalog" className="nav-catalog">Catalog</Link>
+            <Link to="/admin" className="nav-admin">Adminstration</Link>
         </nav>
     );
 }

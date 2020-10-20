@@ -3,6 +3,7 @@ import CatalogContext from '../../CatalogContext';
 import './AdminPage.css';
 import AddCourseForm from '../Forms/AddCourseForm';
 import DeleteCourseForm from '../Forms/DeleteCourseForm';
+import Footer from '../Footer/Footer';
 
 class AdminPage extends React.Component {
     static contextType = CatalogContext;
@@ -77,6 +78,7 @@ class AdminPage extends React.Component {
                     updateDeleteCourse={str=>this.updateDeleteCourse(str)}
                     updatePageTitle={str=>this.updatePageTitle(str)}
                 />
+                <Footer/>
             </div>
         )
     }

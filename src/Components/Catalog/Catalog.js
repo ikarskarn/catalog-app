@@ -2,6 +2,7 @@ import React from 'react';
 import CatalogSection from './CatalogSection.js';
 import SearchBar from './SearchBar';
 import CatalogContext from '../../CatalogContext.js';
+import Footer from '../Footer/Footer.js';
 
 class Catalog extends React.Component {
     static contextType = CatalogContext;
@@ -36,7 +37,7 @@ class Catalog extends React.Component {
                 {store.categories
                 .map(category => (
                     <CatalogSection
-                        key={category.key}
+                        key={category.id}
                         id={category.id}
                         title={category.title}
                         courses={(store.courses)
@@ -46,6 +47,7 @@ class Catalog extends React.Component {
                     >
                     </CatalogSection>
                 ))}
+                <Footer/>
             </div>
         )
     }

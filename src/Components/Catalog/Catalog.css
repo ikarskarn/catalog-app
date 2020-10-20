@@ -94,3 +94,21 @@
 .nav-bar {
     z-index: 200;
 }
+
+@media only screen and (min-width: 1024px) {
+    .category-section > h3 {
+        font-size: 30px;
+    }
+
+    .course-header {
+        font-size: 24px;
+    }
+
+    .course-section p {
+        font-size: 22px;
+    }
+
+    .course-description {
+        padding-bottom: 30px;
+    }
+}

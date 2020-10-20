@@ -20,14 +20,12 @@ class App extends React.Component {
 			})
 		},
 		deleteCourse: id => {
-			console.log('before: ', this.state.courses);
 			const newCourses = this.state.courses.filter(nc => 
 				parseInt(nc.id) !== parseInt(id)
 			)
  			this.setState({
 				courses: newCourses,
 			})
-			console.log('after: ', this.state.courses);
 		},
 	};
 
@@ -46,9 +44,6 @@ class App extends React.Component {
 			addCourse: this.state.addCourse,
 			deleteCourse: this.state.deleteCourse,
 		}
-		console.log(contextValue.categories);
-		console.log(contextValue.learningTracks);
-		console.log(contextValue.courses);
 		return (
 			<main className='App'>
 				<CatalogContext.Provider value={contextValue}>

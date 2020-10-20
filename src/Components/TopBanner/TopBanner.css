@@ -12,13 +12,14 @@ button:hover {
 
 .top-banner {
     padding-top: 41px;
+    text-align: center;
 }
 
 .top-banner > header {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
-    padding: 20% 20% 15% 15%;
+    padding: 20% 15% 20% 15%;
     font-size: 28px;
 }
 
@@ -26,11 +27,10 @@ h1 {
     color: white;
     z-index: 2;
     margin-bottom: 10px;
-    font-family: 
 }
 
 h2 {
-    color: #2095d4;
+    color: #14b0c2;
     z-index: 3;
     margin-top: 0px;
     font-size: 20px;
@@ -59,4 +59,20 @@ h2 {
     bottom: 0;
     background-color: rgba(0,0,0,0.7); /* Black background with opacity */
     z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
+}
+
+@media only screen and (min-width: 600px) {
+    .top-banner {
+        text-align: left;
+    }
+    
+    .top-banner > header {
+        padding: 20% 15% 20% 5%;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .top-banner > header {
+        padding: 20% 15% 10% 5%;
+    }
 }

@@ -33,6 +33,7 @@ class DeleteCourseForm extends React.Component {
     handleDeleteCourseRequest = (e) => {
         e.preventDefault();
         this.context.deleteCourse(this.state.id);
+        this.handleCancelButton();
     }
 
     render() {

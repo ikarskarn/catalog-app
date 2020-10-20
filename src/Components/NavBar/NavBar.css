@@ -14,7 +14,7 @@ button:hover {
     display: flex;
     justify-content: flex-start;
     padding: 20px 0px 20px 0px;
-    background-color: #1771a1;
+    background-color: #14b0c2;
     border-bottom: 1px solid white;
     position: fixed;
     width: 100%;
@@ -22,7 +22,7 @@ button:hover {
 }
 
 .nav-home, .nav-catalog, .nav-admin {
-    padding: 10px 10px 10px 10px;
+    padding: 10px 15px 10px 15px;
     font-size: 16px;
     color: white;
     border-right: white solid 2px;
@@ -30,12 +30,18 @@ button:hover {
 
 .nav-home:hover, .nav-catalog:hover, .nav-admin:hover {
     background-color: rgba(211, 211, 211, 0.25);
+    color: black;
 }
 
 .rel {
     position: relative;
 }
 
-.cover {
-    
+@media only screen and (min-width: 1024px) {
+    .nav-home, .nav-catalog, .nav-admin {
+        padding: 10px 20px 10px 20px;
+        font-size: 22px;
+        color: white;
+        border-right: white solid 2px;
+    }   
 }

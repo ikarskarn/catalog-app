@@ -1,5 +1,7 @@
 import React from 'react';
 import './HomePage.css';
+import Footer from '../Footer/Footer';
+import { Link } from 'react-router-dom';
 
 class HomePage extends React.Component {
     render() {
@@ -13,23 +15,16 @@ class HomePage extends React.Component {
                 <section className="section-two rel">
                     <h2>What would you like to do?</h2>
                     <div className="section-split">
-                        <a href="/catalog">
+                        <Link to="/catalog">
                             <p>See Courses</p>
-                        </a>
-                        <a href="/admin">
+                        </Link>
+                        <Link to="/admin">
                             <p>Edit Courses</p>
-                        </a>
+                        </Link>
                     </div>
                 </section>
 
-                <footer className="content-info rel">
-                    <p>Contact:</p>
-                    <a href="/">Marc Tucker</a>
-                    <p> | </p>
-                    <a href="/">LinkedIn</a>
-                    <p> | </p>
-                    <a href="/">GitHub</a>
-                </footer>
+                <Footer/>
             </div>
         );
     }

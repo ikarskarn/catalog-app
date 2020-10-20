@@ -21,13 +21,19 @@ button:hover {
     font-size: 18px;
 }
 
+.choose-form-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
 .choose-form-section > button {
     padding: 30px;
     margin-bottom: 20px;
     width: 200px;
     height: 200px;
     border: 1px solid white;
-    background-color: #1771A1;
+    background-color:#14b0c250;
     color: white;
     border-radius: 10px;
     box-shadow: rgba(255, 255, 255, 0.199) 3px 3px;
@@ -38,7 +44,7 @@ button:hover {
 
 .choose-form-section > button:hover {
     background-color:  #ff7b00;
-    color: white;
+    color: black;
 }
 
 .form-group {
@@ -58,6 +64,7 @@ button:hover {
     margin-bottom: 10px;
     width: 80%;
     align-self: center;
+    border-radius: 6px;
 }
 
 .form-group > textarea {
@@ -65,10 +72,11 @@ button:hover {
 }
 
 .add-course-buttons > button, .delete-course-buttons > button {
-    height: 40px;
+    height: 50px;
+    width: 100px;
     margin: 20px;
     border-radius: 10px;
-    background-color:  #1771A1;
+    background-color:  #14b0c2;
     color: white;
 }
 
@@ -78,4 +86,82 @@ button:hover {
 
 .errorMessage {
     color: red;
+}
+
+.admin-page > h2 {
+    border-top: 2px solid #ff7b00;
+    padding-top: 30px;
+}
+
+.hidden {
+    display: none;
+}
+
+@media only screen and (min-width: 600px) {    
+    .choose-form-section {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+    }
+
+    .form-group {
+        width: 600px;
+    }
+
+    .add-course-buttons > button, .delete-course-buttons > button {
+        height: 60px;
+        width: 150px;
+        margin: 20px;
+        border-radius: 10px;
+        background-color:  #14b0c2;
+        color: white;
+    }
+
+    .add-course-form, .delete-course-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .hidden {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 1024px) {
+    .choose-form-section > button {
+        width: 400px;
+        height: 200px;
+        font-size: 36px;
+    }
+
+    .admin-page {
+        padding-bottom: 30px;
+    }
+    
+    .add-course-buttons > button, .delete-course-buttons > button {
+        height: 100px;
+        width: 200px;
+        font-size: 22px;
+    }
+    
+    .form-group > select, .form-group > input, .form-group > textarea {
+        height: 48px;
+        font-size: 20px;
+        padding: 10px;
+    }
+
+    .form-group > textarea {
+        height: 200px;
+    }
+
+    .form-group > label {
+        font-size: 20px;
+        padding-bottom: 5px;
+        padding-top: 10px;
+    }
+
+    .hidden {
+        display: none;
+    }
 }

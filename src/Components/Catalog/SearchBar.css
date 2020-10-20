@@ -18,15 +18,18 @@ form.catalog-search input:focus {
 form.catalog-search button {
     padding: 10px;
     font-size: 18px;
-    border: 1px solid black;
+    border: 1px solid #14b0c2;
+    background-color: #14b0c250;
+    color:white;
+    border-radius: 10px; 
     width: 20%;
     height: 50px;
     margin: 0px 0px 0px 5px;
 }
 
 form.catalog-search button:hover {
-    background-color: #862633;
-	color: white; 
+    background-color:  #ff7b00;
+    color: black; 
 }
 
 .catalog-search {
