@@ -1,9 +1,9 @@
 import React from 'react';
 
 const CatalogContext = React.createContext({
-    catalog: [],
-    addCourse: () => {},
-    deleteCourse: () => {},
+    //catalog: [],
+    //addCourse: () => {},
+    //deleteCourse: () => {},
 })
 
 export default CatalogContext;

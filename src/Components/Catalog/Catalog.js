@@ -28,19 +28,21 @@ class Catalog extends React.Component {
     }
 
     render() {
-        const store = this.context;
+        //const store = this.context;
+        const categories = this.context.categories || [];
+        const courses = this.context.courses || [];
         return (
             <div className="App-list">
                 <SearchBar
                     handleSearch={(e, query)=>this.handleSearch(e, query)}
                 />
-                {store.categories
+                {categories
                 .map(category => (
                     <CatalogSection
                         key={category.id}
                         id={category.id}
                         title={category.title}
-                        courses={(store.courses)
+                        courses={(courses)
                             .filter(course => category.id === course.category && course.title.toLowerCase().includes(this.state.query.toLowerCase()))
                             .map(course => course)
                         }

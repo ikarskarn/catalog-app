@@ -29,13 +29,6 @@ class App extends React.Component {
 		},
 	};
 
-	setCourses = courses => {
-		this.setState({
-			courses,
-			error: null,
-		})
-	}
-
 	render() {
 		const contextValue = {
 			categories: this.state.categories,
@@ -46,7 +39,7 @@ class App extends React.Component {
 		}
 		return (
 			<main className='App'>
-				<CatalogContext.Provider value={contextValue}>
+				<CatalogContext.Provider value={this.state}>
 					<NavBar/>
 					<TopBanner />
 					<div className='content' aria-live='polite'>

@@ -38,7 +38,8 @@ class DeleteCourseForm extends React.Component {
 
     render() {
         const { error } = this.state;
-        const courseOptions = this.context.courses.map((course) => {
+        const courses = this.context.courses || [];
+        const courseOptions = courses.map((course) => {
             return(
                 <option 
                     key={course.id}

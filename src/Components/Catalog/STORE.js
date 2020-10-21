@@ -432,7 +432,7 @@ const STORE = {
         },
         {
             id: 40,
-            category: 7,
+            category: 1,
             title: 'Blended Learning',
             courseCode: 'FD-ELN-023',
             learningTrack: 'OTC Enrich',
@@ -477,7 +477,7 @@ const STORE = {
         },
         {
             id: 45,
-            category: 7,
+            category: 1,
             title: 'Core Strategies for Teaching in Higher Ed',
             courseCode: 'FD-ELN-027',
             learningTrack: 'OTC Enrich',

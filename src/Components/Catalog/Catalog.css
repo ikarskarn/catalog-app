@@ -79,10 +79,6 @@
     padding: 10px;
 }
 
-.hidden {
-    display: none;
-}
-
 .App-list {
     z-index: 10;
 }
@@ -93,6 +89,10 @@
 
 .nav-bar {
     z-index: 200;
+}
+
+.hidden {
+    display: none;
 }
 
 @media only screen and (min-width: 1024px) {

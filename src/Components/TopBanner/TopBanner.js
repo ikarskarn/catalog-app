@@ -8,7 +8,6 @@ export default function TopBanner(props) {
             <video className="background-video"
                 autoPlay
                 loop
-                muted
             >
                 <source src={BackgroundBanner} type="video/mp4"/>
             </video>

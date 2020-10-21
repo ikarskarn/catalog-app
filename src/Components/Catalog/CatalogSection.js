@@ -3,8 +3,9 @@ import CourseDescriptions from './CourseDescriptions.js';
 import './Catalog.css';
 
 function CatalogSection(props) {
+    const courses = props.courses || [];
     return (
-        <section className={`rel category-section ${props.courses.length > 0 ? '' : 'hidden'}`}>
+        <section className={`rel category-section ${courses.length > 0 ? '' : 'hidden'}`}>
             <div className='course-title'>
                 <header 
                     id={props.id}
@@ -15,7 +16,7 @@ function CatalogSection(props) {
             </div>
 
             <div className='list-courses'>
-                {props.courses.map((course) =>
+                {courses.map((course) =>
                     <CourseDescriptions
                         key={course.id}
                         id={course.id}

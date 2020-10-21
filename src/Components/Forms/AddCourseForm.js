@@ -30,9 +30,7 @@ class AddCourseForm extends React.Component {
 
     handleAddCourseRequest = (e) => {
         e.preventDefault();
-        console.log(e);
         const id = parseInt(this.context.courses.length + 1);
-        console.log("ID: ", id);
         const category = this.state.category;
         const title = this.state.title;
         const courseCode = this.state.courseCode;
@@ -40,7 +38,6 @@ class AddCourseForm extends React.Component {
         const certification = this.state.certification;
         const description = this.state.description;
         const newCourse = { id, category, title, courseCode, learningTrack, certification, description };
-        console.log("New Course: ", newCourse);
         this.context.addCourse(newCourse);
         this.handleCancelButton();
     }
@@ -89,7 +86,8 @@ class AddCourseForm extends React.Component {
 
     render() {
         const { error } = this.state;
-        const categoryOptions = this.context.categories.map((category) => {
+        const categories = this.context.categories || [];
+        const categoryOptions = categories.map((category) => {
             return(
                 <option 
                     key={category.id}
@@ -100,7 +98,8 @@ class AddCourseForm extends React.Component {
                 </option>
             )
         });
-        const learningTrackOptions = this.context.learningTracks.map((track) => {
+        const learningTracks = this.context.learningTracks || [];
+        const learningTrackOptions = learningTracks.map((track) => {
             return(
                 <option 
                     key={track.id}
