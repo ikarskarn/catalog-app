@@ -24,7 +24,6 @@ class DeleteCourseForm extends React.Component {
 
     updateID = (e) => {
         e.preventDefault();
-        console.log(e.target.value);
         this.setState({
             id: e.target.value,
         })
