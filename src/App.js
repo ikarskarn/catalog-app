@@ -7,7 +7,6 @@ import Catalog from './Components/Catalog/Catalog';
 import AdminPage from './Components/AdminPage/AdminPage';
 import CatalogContext from './CatalogContext';
 import config from './config';
-import STORE from './Components/Catalog/STORE';
 
 class App extends React.Component {
 	state = {
@@ -33,7 +32,8 @@ class App extends React.Component {
 				courses,
 				error: null,
 			})
-		}
+		},
+
 	};
 
 	componentDidMount() {
@@ -46,14 +46,12 @@ class App extends React.Component {
 		})
         .then(response => {
             if(!response.ok) {
-                return response.json().then(error =>{
-                    throw error
-                })
+                return response.json().then(error => Promise.reject(error))
             }
             return response.json();
         })
         .then(categories => {
-            this.setState({ categories })
+			this.setState({ categories })
         })
         .catch(error => {
             console.error('Category error: ', error);
@@ -68,9 +66,7 @@ class App extends React.Component {
         })
         .then(response => {
             if(!response.ok) {
-                return response.json().then(error => {
-                    throw error
-                })
+                return response.json().then(error => Promise.reject(error))
             }
             return response.json();
         })
@@ -90,9 +86,7 @@ class App extends React.Component {
 		})
 		.then(response => {
 			if(!response.ok) {
-				return response.json().then(error => {
-					throw error
-				})
+				return response.json().then(error => Promise.reject(error))
 			}
 			return response.json();
 		})
@@ -105,16 +99,9 @@ class App extends React.Component {
     }
 
 	render() {
-		//const contextValue = {
-		//	categories: this.state.categories,
-		//	learningTracks: this.state.learningTracks,
-		//	courses: this.state.courses,
-		//	addCourse: this.state.addCourse,
-		//	deleteCourse: this.state.deleteCourse,
-		//}
 		return (
-			<CatalogContext.Provider value={this.state}>
-				<main className='App'>
+			<main className='App'>
+				<CatalogContext.Provider value={this.state}>
 					<NavBar/>
 					<TopBanner />
 					<div className='content' aria-live='polite'>
@@ -122,8 +109,8 @@ class App extends React.Component {
 						<Route path='/catalog' component={Catalog} />
 						<Route path='/admin' component={AdminPage} />
 					</div>
-				</main>
-			</CatalogContext.Provider>
+				</CatalogContext.Provider>
+			</main>
 		)
 	}
 }

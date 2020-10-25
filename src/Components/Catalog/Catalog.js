@@ -3,6 +3,7 @@ import CatalogSection from './CatalogSection.js';
 import SearchBar from './SearchBar';
 import CatalogContext from '../../CatalogContext.js';
 import Footer from '../Footer/Footer.js';
+import config from '../../config';
 
 class Catalog extends React.Component {
     static contextType = CatalogContext;
@@ -28,22 +29,21 @@ class Catalog extends React.Component {
     }
 
     render() {
-        //const store = this.context;
-        const categories = this.context.categories || [];
-        const courses = this.context.courses || [];
+        //const categories = this.context.categories || [];
+        //const courses = this.context.courses || [];
         return (
             <div className="App-list">
                 <SearchBar
                     handleSearch={(e, query)=>this.handleSearch(e, query)}
                 />
-                {categories
+                {this.context.categories
                 .map(category => (
                     <CatalogSection
                         key={category.id}
                         id={category.id}
                         title={category.title}
-                        courses={(courses)
-                            .filter(course => category.id === course.category && course.title.toLowerCase().includes(this.state.query.toLowerCase()))
+                        courses={(this.context.courses)
+                            .filter(course => category.id === course.category_id && course.title.toLowerCase().includes(this.state.query.toLowerCase()))
                             .map(course => course)
                         }
                     >

@@ -1,11 +1,15 @@
 import React from 'react';
 import CourseDescriptions from './CourseDescriptions.js';
 import './Catalog.css';
+import CatalogContext from '../../CatalogContext.js';
 
-function CatalogSection(props) {
+
+function CatalogSection(props) {    
     const courses = props.courses || [];
+    console.log("Catalog Section Courses: ", courses);
+    
     return (
-        <section className={`rel category-section ${courses.length > 0 ? '' : 'hidden'}`}>
+        <section className={`rel category-section ${courses.length > 0 ? '' : ''}`}>
             <div className='course-title'>
                 <header 
                     id={props.id}
@@ -14,7 +18,7 @@ function CatalogSection(props) {
                     <h3>{props.title}</h3>
                 </header>
             </div>
-
+    
             <div className='list-courses'>
                 {courses.map((course) =>
                     <CourseDescriptions
@@ -29,7 +33,7 @@ function CatalogSection(props) {
                 )}
             </div>
         </section>
-    );    
+    );
 }
 
 CatalogSection.defaultProps = {

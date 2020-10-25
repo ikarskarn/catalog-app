@@ -15,7 +15,7 @@ class AddCourseForm extends React.Component {
         category: 0,
         title: '',
         courseCode: '',
-        learningTrack: '',
+        learningTrack: 0,
         certification: '',
         description: '',
     }
@@ -31,13 +31,13 @@ class AddCourseForm extends React.Component {
     handleAddCourseRequest = (e) => {
         e.preventDefault();
         const id = parseInt(this.context.courses.length + 1);
-        const category = this.state.category;
+        const category_id = this.state.category;
         const title = this.state.title;
         const courseCode = this.state.courseCode;
-        const learningTrack = this.state.learningTrack;
+        const learningTrack_id = this.state.learningTrack;
         const certification = this.state.certification;
         const description = this.state.description;
-        const newCourse = { id, category, title, courseCode, learningTrack, certification, description };
+        const newCourse = { id, category_id, title, courseCode, learningTrack_id, certification, description };
         this.context.addCourse(newCourse);
         this.handleCancelButton();
     }
