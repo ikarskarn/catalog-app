@@ -9,7 +9,7 @@ function CatalogSection(props) {
     console.log("Catalog Section Courses: ", courses);
     
     return (
-        <section className={`rel category-section ${courses.length > 0 ? '' : ''}`}>
+        <section className={`rel category-section ${courses.length > 0 ? '' : 'hidden'}`}>
             <div className='course-title'>
                 <header 
                     id={props.id}

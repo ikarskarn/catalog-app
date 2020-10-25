@@ -1,5 +1,6 @@
 import React from 'react';
 import CatalogContext from '../../CatalogContext';
+import config from '../../config';
 
 const Required = () => (
 	<span className='AddCourse__required'>*</span>
@@ -30,15 +31,34 @@ class AddCourseForm extends React.Component {
 
     handleAddCourseRequest = (e) => {
         e.preventDefault();
-        const id = parseInt(this.context.courses.length + 1);
+        //const id = parseInt(this.context.courses.length + 1);
         const category_id = this.state.category;
         const title = this.state.title;
-        const courseCode = this.state.courseCode;
-        const learningTrack_id = this.state.learningTrack;
+        const course_code = this.state.courseCode;
+        const learning_track_id = this.state.learningTrack;
         const certification = this.state.certification;
-        const description = this.state.description;
-        const newCourse = { id, category_id, title, courseCode, learningTrack_id, certification, description };
-        this.context.addCourse(newCourse);
+        const course_description = this.state.description;
+        const newCourse = { category_id, title, course_code, learning_track_id, certification, course_description };
+        fetch(`${config.API_ENDPOINT}/api/courses`, {
+            method: 'POST',
+            body: JSON.stringify(newCourse),
+            headers: {
+                'content-type': 'application/json',
+            }
+        })
+        .then(res => {
+            if(!res.ok) {
+                return res.json().then(error => Promise.reject(error))
+            }
+            return res.json()
+        })
+        .then(data => {
+            this.context.addCourse(newCourse);
+        })
+        .catch(error => {
+            console.error(error)
+        })
+    
         this.handleCancelButton();
     }
 

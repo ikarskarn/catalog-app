@@ -1,5 +1,6 @@
 import React from 'react';
 import CatalogContext from '../../CatalogContext';
+import config from '../../config';
 
 const Required = () => (
 	<span className='DeleteCourse__required'>*</span>
@@ -29,10 +30,28 @@ class DeleteCourseForm extends React.Component {
         })
     }
 
-    handleDeleteCourseRequest = (e) => {
+    handleDeleteCourseRequest = (e, dc) => {
         e.preventDefault();
-        this.context.deleteCourse(this.state.id);
-        this.handleCancelButton();
+        dc(this.state.id);
+        fetch(config.API_ENDPOINT + `/api/courses/${this.state.id}`, {
+            method: 'DELETE',
+            headers: {
+                'content-type': 'application/json',
+            }
+        })
+        .then(res => {
+            if(!res.ok) {
+                return res.json().then(error => Promise.reject(error))
+            }
+            return res.json()
+        })
+        .then(data => {
+            dc(this.state.id)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+        this.handleDeleteCourseRequest();
     }
 
     render() {
@@ -53,7 +72,7 @@ class DeleteCourseForm extends React.Component {
             <section className={this.props.state.deleteCourse}>
                 <form
                     className='delete-course-form'
-                    onSubmit={(e)=>this.handleDeleteCourseRequest(e)}
+                    onSubmit={(e)=>this.handleDeleteCourseRequest(e, this.context.delteCourse)}
                 >
                     <div className='delete-course-error' role='alert' >
                         {error && <p>{error.message}</p>}
