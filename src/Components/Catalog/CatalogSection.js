@@ -25,10 +25,10 @@ function CatalogSection(props) {
                         key={course.id}
                         id={course.id}
                         title={course.title}
-                        courseCode={`Course ID: ${course.courseCode}`}
-                        learningTrack={`Learning Track: ${course.learningTrack}`}
+                        courseCode={`Course ID: ${course.course_code}`}
+                        learningTrack={`Learning Track: ${course.learning_track_id}`}
                         certification={`Certification: ${course.certification}`}
-                        description={course.description}
+                        description={course.course_description}
                     />
                 )}
             </div>

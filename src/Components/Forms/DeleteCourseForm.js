@@ -30,9 +30,8 @@ class DeleteCourseForm extends React.Component {
         })
     }
 
-    handleDeleteCourseRequest = (e, dc) => {
+    handleDeleteCourseRequest = (e) => {
         e.preventDefault();
-        dc(this.state.id);
         fetch(config.API_ENDPOINT + `/api/courses/${this.state.id}`, {
             method: 'DELETE',
             headers: {
@@ -46,12 +45,12 @@ class DeleteCourseForm extends React.Component {
             return res.json()
         })
         .then(data => {
-            dc(this.state.id)
+            this.context.deleteCourse(this.state.id)
         })
         .catch(error => {
             console.error(error)
         })
-        this.handleDeleteCourseRequest();
+        this.handleCancelButton();
     }
 
     render() {
@@ -72,7 +71,7 @@ class DeleteCourseForm extends React.Component {
             <section className={this.props.state.deleteCourse}>
                 <form
                     className='delete-course-form'
-                    onSubmit={(e)=>this.handleDeleteCourseRequest(e, this.context.delteCourse)}
+                    onSubmit={(e)=>this.handleDeleteCourseRequest(e)}
                 >
                     <div className='delete-course-error' role='alert' >
                         {error && <p>{error.message}</p>}
@@ -91,11 +90,11 @@ class DeleteCourseForm extends React.Component {
                             aria-label="Course To Delete"
                             aria-required="true"
                             aria-invalid="true"
-                            defaultValue={0}
+                            defaultValue={''}
                             required
                             onChange={(e)=>this.updateID(e)}
                         >
-                            <option value={0} disabled>Choose a Course</option>
+                            <option value={''} disabled>Choose a Course</option>
                             {courseOptions}
                         </select>
                     </div>

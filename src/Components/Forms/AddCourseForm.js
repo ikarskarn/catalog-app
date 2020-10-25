@@ -32,28 +32,36 @@ class AddCourseForm extends React.Component {
     handleAddCourseRequest = (e) => {
         e.preventDefault();
         //const id = parseInt(this.context.courses.length + 1);
-        const category_id = this.state.category;
+        const category_id = parseInt(this.state.category);
         const title = this.state.title;
         const course_code = this.state.courseCode;
-        const learning_track_id = this.state.learningTrack;
+        const learning_track_id = parseInt(this.state.learningTrack);
         const certification = this.state.certification;
         const course_description = this.state.description;
         const newCourse = { category_id, title, course_code, learning_track_id, certification, course_description };
-        fetch(`${config.API_ENDPOINT}/api/courses`, {
+        
+        const url=`${config.API_ENDPOINT}/api/courses`
+        console.log("URL: ", url);
+        const options = {
             method: 'POST',
             body: JSON.stringify(newCourse),
             headers: {
-                'content-type': 'application/json',
+                'Content-Type': 'application/json',
             }
-        })
+        }
+        console.log("Body: ", options.body);
+        
+        fetch(url, options)
         .then(res => {
+            console.log("Res: ", res);
             if(!res.ok) {
-                return res.json().then(error => Promise.reject(error))
+                return Promise.reject(res.statusText);
             }
             return res.json()
         })
         .then(data => {
-            this.context.addCourse(newCourse);
+            console.log("data: ", data);
+            this.context.addCourse(data);
         })
         .catch(error => {
             console.error(error)
@@ -63,10 +71,11 @@ class AddCourseForm extends React.Component {
     }
 
     updateCategory = (e) => {
-        const category = e.target.value;
+        const category = parseInt(e.target.value);
         this.setState({
             category
         })
+        console.log("Category Chosen: ", category);
     }
 
     updateTitle = (e) => {
@@ -74,6 +83,7 @@ class AddCourseForm extends React.Component {
         this.setState({
             title
         })
+        console.log("Title Chosen: ", title);
     }
 
     updateCourseCode = (e) => {
@@ -81,13 +91,15 @@ class AddCourseForm extends React.Component {
         this.setState({
             courseCode
         })
+        console.log("Course Code Chosen: ", courseCode);
     }
 
     updateLearningTrack = (e) => {
-        const learningTrack = e.target.value;
+        const learningTrack = parseInt(e.target.value);
         this.setState({
             learningTrack
         })
+        console.log("Learning Track Chosen: ", learningTrack);
     }
 
     updateCertification = (e) => {
@@ -95,6 +107,7 @@ class AddCourseForm extends React.Component {
         this.setState({
             certification
         })
+        console.log("Certification Chosen: ", certification);
     }
 
     updateDescription = (e) => {
@@ -102,6 +115,7 @@ class AddCourseForm extends React.Component {
         this.setState({
             description
         })
+        console.log("Description Chosen: ", description);
     }
 
     render() {
@@ -193,17 +207,21 @@ class AddCourseForm extends React.Component {
                         />
                     </div>
                     <div className="form-group">
-                        <label htmlFor="learning-track">Learning Track</label>
+                        <label htmlFor="learning-track">
+                            Learning Track
+                            {' '}
+                            <Required />
+                        </label>
                         <select
                             className="learning-track"
                             name="learning-track"
                             id="learning-track"
                             aria-label="Learning Track for Course"
                             aria-invalid="true"
-                            defaultValue={'none'}
+                            defaultValue={''}
                             onChange={e=>this.updateLearningTrack(e)}
                         >
-                            <option value="none">None</option>
+                            <option value='' disabled>Choose a Learning Track</option>
                             {learningTrackOptions}
                         </select>
                     </div>
@@ -225,6 +243,8 @@ class AddCourseForm extends React.Component {
                     <div className="form-group">
                         <label htmlFor='description'>
                             Course Description
+                            {' '}
+                            <Required />
                         </label>
                         <textarea
                             name='description'

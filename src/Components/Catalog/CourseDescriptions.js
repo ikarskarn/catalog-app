@@ -8,7 +8,7 @@ function CourseDescriptions(props) {
             <h4 className='course-header'>{props.title}</h4>
             <div className='connections-block'>
                 <div className="connections">
-                    <p className={(props.learningTrack === 'Learning Track: none') ? 'course-association hidden' : 'course-association coming-soon'}>
+                    <p className={(props.learningTrack === 'Learning Track: 1') ? 'course-association hidden' : 'course-association coming-soon'}>
                         {props.learningTrack}
                     </p>
                     <p className={(props.certification === 'Certification: none') ? 'course-association hidden' : 'course-association coming-soon'}>

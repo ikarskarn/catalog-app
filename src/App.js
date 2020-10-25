@@ -15,6 +15,7 @@ class App extends React.Component {
 		courses: [],
 		error: null,
 		addCourse: courses => {
+			console.log("New Courses: ", courses);
 			this.setState({
 				courses: [ ...this.state.courses, courses ],
 			})
@@ -27,13 +28,6 @@ class App extends React.Component {
 				courses: newCourses,
 			})
 		},
-		setCourses: courses => {
-			this.setState({
-				courses,
-				error: null,
-			})
-		},
-
 	};
 
 	componentDidMount() {
