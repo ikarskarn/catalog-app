@@ -39,10 +39,8 @@ class AddCourseForm extends React.Component {
         const certification = this.state.certification;
         const course_description = this.state.description;
         const newCourse = { category_id, title, course_code, learning_track_id, certification, course_description };
-        console.log("New Course: ", newCourse);
         
         const url=`${config.API_ENDPOINT}/api/courses`
-        console.log("URL: ", url);
         const options = {
             method: 'POST',
             body: JSON.stringify(newCourse),
@@ -50,11 +48,9 @@ class AddCourseForm extends React.Component {
                 'Content-Type': 'application/json',
             }
         }
-        console.log("Body: ", options.body);
         
         fetch(url, options)
         .then(res => {
-            console.log("Res: ", res);
             if(!res.ok) {
                 return Promise.reject(res.statusText);
             }
@@ -73,7 +69,6 @@ class AddCourseForm extends React.Component {
         this.setState({
             category
         })
-        console.log("Category Chosen: ", category);
     }
 
     updateTitle = (e) => {
@@ -81,7 +76,6 @@ class AddCourseForm extends React.Component {
         this.setState({
             title
         })
-        console.log("Title Chosen: ", title);
     }
 
     updateCourseCode = (e) => {
@@ -89,7 +83,6 @@ class AddCourseForm extends React.Component {
         this.setState({
             courseCode
         })
-        console.log("Course Code Chosen: ", courseCode);
     }
 
     updateLearningTrack = (e) => {
@@ -97,7 +90,6 @@ class AddCourseForm extends React.Component {
         this.setState({
             learningTrack
         })
-        console.log("Learning Track Chosen: ", learningTrack);
     }
 
     updateCertification = (e) => {
@@ -105,7 +97,6 @@ class AddCourseForm extends React.Component {
         this.setState({
             certification
         })
-        console.log("Certification Chosen: ", certification);
     }
 
     updateDescription = (e) => {
@@ -113,7 +104,6 @@ class AddCourseForm extends React.Component {
         this.setState({
             description
         })
-        console.log("Description Chosen: ", description);
     }
 
     render() {

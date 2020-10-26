@@ -6,7 +6,6 @@ import CatalogContext from '../../CatalogContext.js';
 
 function CatalogSection(props) {    
     const courses = props.courses || [];
-    console.log("Catalog Section Courses: ", courses);
     
     return (
         <section className={`rel category-section ${courses.length > 0 ? '' : 'hidden'}`}>

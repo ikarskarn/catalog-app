@@ -15,7 +15,6 @@ class App extends React.Component {
 		courses: [],
 		error: null,
 		addCourse: courses => {
-			console.log("New Courses: ", courses);
 			this.setState({
 				courses: [ ...this.state.courses, courses ],
 			})

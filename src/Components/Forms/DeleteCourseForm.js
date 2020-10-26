@@ -33,7 +33,6 @@ class DeleteCourseForm extends React.Component {
     handleDeleteCourseRequest = (e) => {
         e.preventDefault();
         const url=`${config.API_ENDPOINT}/api/courses/${this.state.id}`
-        console.log("URL: ", url);
         const options = {
             method: 'DELETE',
             headers: {
@@ -70,7 +69,6 @@ class DeleteCourseForm extends React.Component {
                 </option>
             )
         });
-        console.log(courseOptions);
         return (
             <section className={this.props.state.deleteCourse}>
                 <form
