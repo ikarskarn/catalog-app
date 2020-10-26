@@ -32,12 +32,10 @@ class DeleteCourseForm extends React.Component {
 
     handleDeleteCourseRequest = (e) => {
         e.preventDefault();
-        const id = parseInt(this.state.id);
-        const courseToDelete = { id };
-        const url=`${config.API_ENDPOINT}/api/courses/${id}`
+        const url=`${config.API_ENDPOINT}/api/courses/${this.state.id}`
+        console.log("URL: ", url);
         const options = {
             method: 'DELETE',
-            body: JSON.stringify(courseToDelete),
             headers: {
                 'content-type': 'application/json'
             }
@@ -51,7 +49,7 @@ class DeleteCourseForm extends React.Component {
             }
             return res.json()
         })
-        .then(this.context.deleteCourse(id))
+        .then(this.context.deleteCourse(this.state.id))
         .catch(error => {
             console.error(error)
         })
