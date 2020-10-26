@@ -39,6 +39,7 @@ class AddCourseForm extends React.Component {
         const certification = this.state.certification;
         const course_description = this.state.description;
         const newCourse = { category_id, title, course_code, learning_track_id, certification, course_description };
+        console.log("New Course: ", newCourse);
         
         const url=`${config.API_ENDPOINT}/api/courses`
         console.log("URL: ", url);
@@ -59,10 +60,7 @@ class AddCourseForm extends React.Component {
             }
             return res.json()
         })
-        .then(data => {
-            console.log("data: ", data);
-            this.context.addCourse(data);
-        })
+        .then(this.context.addCourse(newCourse))
         .catch(error => {
             console.error(error)
         })
@@ -124,7 +122,7 @@ class AddCourseForm extends React.Component {
         const categoryOptions = categories.map((category) => {
             return(
                 <option 
-                    key={category.id}
+                    key={`category-${category.id}`}
                     id={category.id}
                     value={category.id}
                 >
@@ -136,7 +134,7 @@ class AddCourseForm extends React.Component {
         const learningTrackOptions = learningTracks.map((track) => {
             return(
                 <option 
-                    key={track.id}
+                    key={`track-${track.id}`}
                     id={track.id}
                     value={track.id}
                 >

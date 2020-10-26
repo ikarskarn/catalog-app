@@ -32,21 +32,26 @@ class DeleteCourseForm extends React.Component {
 
     handleDeleteCourseRequest = (e) => {
         e.preventDefault();
-        fetch(config.API_ENDPOINT + `/api/courses/${this.state.id}`, {
+        const id = parseInt(this.state.id);
+        const courseToDelete = { id };
+        const url=`${config.API_ENDPOINT}/api/courses/${id}`
+        const options = {
             method: 'DELETE',
+            body: JSON.stringify(courseToDelete),
             headers: {
-                'content-type': 'application/json',
+                'content-type': 'application/json'
             }
-        })
+        }
+        fetch(url, options)
         .then(res => {
-            if(!res.ok) {
-                return res.json().then(error => Promise.reject(error))
+            if (!res.ok) {
+                return res.json().then(error => {
+                    throw error
+                })
             }
             return res.json()
         })
-        .then(data => {
-            this.context.deleteCourse(this.state.id)
-        })
+        .then(this.context.deleteCourse(id))
         .catch(error => {
             console.error(error)
         })
@@ -59,7 +64,7 @@ class DeleteCourseForm extends React.Component {
         const courseOptions = courses.map((course) => {
             return(
                 <option 
-                    key={course.id}
+                    key={`course-${course.id}`}
                     id={course.id}
                     value={course.id}
                 >
@@ -67,6 +72,7 @@ class DeleteCourseForm extends React.Component {
                 </option>
             )
         });
+        console.log(courseOptions);
         return (
             <section className={this.props.state.deleteCourse}>
                 <form

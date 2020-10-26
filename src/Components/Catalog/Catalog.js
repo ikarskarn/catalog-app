@@ -39,7 +39,7 @@ class Catalog extends React.Component {
                 {this.context.categories
                 .map(category => (
                     <CatalogSection
-                        key={category.id}
+                        key={`category-${category.id}`}
                         id={category.id}
                         title={category.title}
                         courses={(this.context.courses)

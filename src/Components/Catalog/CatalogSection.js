@@ -22,7 +22,7 @@ function CatalogSection(props) {
             <div className='list-courses'>
                 {courses.map((course) =>
                     <CourseDescriptions
-                        key={course.id}
+                        key={`course-${course.id}`}
                         id={course.id}
                         title={course.title}
                         courseCode={`Course ID: ${course.course_code}`}
