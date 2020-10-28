@@ -28,6 +28,10 @@ class DeleteCourseForm extends React.Component {
     });
   };
 
+  order = (a, b) => {
+    return a.props.children < b.props.children ? -1 : a > b ? 1 : 0;
+  };
+
   handleDeleteCourseRequest = (e) => {
     e.preventDefault();
     const url = `${config.API_ENDPOINT}/api/courses/${this.state.id}`;
@@ -56,13 +60,16 @@ class DeleteCourseForm extends React.Component {
   render() {
     const { error } = this.state;
     const courses = this.context.courses || [];
-    const courseOptions = courses.map((course) => {
-      return (
-        <option key={`course-${course.id}`} id={course.id} value={course.id}>
-          {course.title}
-        </option>
-      );
-    });
+    const courseOptions = courses
+      .sort()
+      .map((course) => {
+        return (
+          <option key={`course-${course.id}`} id={course.id} value={course.id}>
+            {course.title}
+          </option>
+        );
+      })
+      .sort(this.order);
     return (
       <section className={this.props.state.deleteCourse}>
         <form
