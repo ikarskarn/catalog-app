@@ -207,6 +207,7 @@ class AddCourseForm extends React.Component {
                             aria-label="Learning Track for Course"
                             aria-invalid="true"
                             defaultValue={''}
+                            required
                             onChange={e=>this.updateLearningTrack(e)}
                         >
                             <option value='' disabled>Choose a Learning Track</option>
