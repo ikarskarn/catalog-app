@@ -1,78 +1,78 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    font-size: 1em;
+  font-size: 1em;
 }
 
 button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .top-banner {
-    padding-top: 41px;
-    text-align: center;
+  padding-top: 41px;
+  text-align: center;
 }
 
 .top-banner > header {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    padding: 20% 15% 20% 15%;
-    font-size: 28px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20% 15% 20% 15%;
+  font-size: 28px;
 }
 
 h1 {
-    color: white;
-    z-index: 2;
-    margin-bottom: 10px;
+  color: white;
+  z-index: 2;
+  margin-bottom: 10px;
 }
 
 h2 {
-    color: #14b0c2;
-    z-index: 3;
-    margin-top: 0px;
-    font-size: 20px;
+  color: #14b0c2;
+  z-index: 3;
+  margin-top: 0px;
+  font-size: 20px;
 }
 
 .background-video {
-    position: fixed;
-    width: 100%;
-    left: 0;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    object-fit: cover;
-    transform: "translate(-50%, -50%)";
-    z-Index: "-2";
+  position: fixed;
+  width: 100%;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  height: 100%;
+  object-fit: cover;
+  transform: "translate(-50%, -50%)";
+  z-index: "-2";
 }
 
 .cover {
-    position: fixed; /* Sit on top of the page content */
-    width: 100%; /* Full width (cover the whole page) */
-    height: 100%; /* Full height (cover the whole page) */
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0,0,0,0.7); /* Black background with opacity */
-    z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
+  position: fixed; /* Sit on top of the page content */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7); /* Black background with opacity */
+  z-index: 0; /* Specify a stack order in case you're using a different order for other elements */
 }
 
 @media only screen and (min-width: 600px) {
-    .top-banner {
-        text-align: left;
-    }
-    
-    .top-banner > header {
-        padding: 20% 15% 20% 5%;
-    }
+  .top-banner {
+    text-align: left;
+  }
+
+  .top-banner > header {
+    padding: 20% 15% 20% 5%;
+  }
 }
 
 @media only screen and (min-width: 1024px) {
-    .top-banner > header {
-        padding: 20% 15% 10% 5%;
-    }
+  .top-banner > header {
+    padding: 200px 15% 100px 5%;
+  }
 }

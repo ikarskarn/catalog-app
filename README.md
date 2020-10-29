@@ -1,68 +1,50 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Center for Teaching Excellence Catalog
 
-## Available Scripts
+> [Catalog App](https://catalog-app.vercel.app/) \| [App GitHub Repo](https://github.com/ikarskarn/catalog-app) \| [Api GitHub Repo](https://github.com/ikarskarn/catalog-api)
 
-In the project directory, you can run:
+The Center for Teaching Excellence Catalog utilizes the custom API created by Marc Tucker. [API DOCUMENTATION HERE](https://github.com/ikarskarn/catalog-api/blob/master/README.md)
 
-### `npm start`
+## Introduction
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+As an instructional designer, web developer, and game developer for the Center for Teaching and Learning Excellence, an ever changing course catalog is essential to providing information to faculty and staff about learning and training opportunties.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+> This version of the app is intended to demo the app's functionality and provide observers with the opportunity to experience the app from the perspective of both the end user and adminstrator.
 
-### `npm test`
+## Tools
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The tools used in the creation of this app include:
 
-### `npm run build`
+Front end: **React** \| **CSS** \| **JQuery**
+Back end: **Express** \| **Node.js** \| **PostgreSQL**
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Purpose
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+The pupose of this catalog is to make it as simple as possible for faculty and staff to see the courses and trainings offered by the Center. Another feature of the app is providing a page for other instructional designers and adminstrators to create new courses and delete courses that are no longer needed.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Style
 
-### `npm run eject`
+Below is a list of the current pages and a brief description of their purpose and intentional design.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Landing Page
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The landing page is to simply provide users, adminstrators, and observers with a brief description about the app and what steps can be taken next.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+<img src="src/images/mobile_home_still000.jpg" alt="Mobile Home Page" width="250"/> &nbsp; &nbsp; &nbsp; <img src="src/images/mobile_home_still_02000.jpg" alt="Mobile Home Page" width="250"/>
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+<img src="src/images/tablet_home000.jpg" alt="Tablet Home Page" width="525"/>
 
-## Learn More
+## Catalog Page
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The Catalog page provides a full list of available courses divided up into categories, a search feature, and also includes connections to Learning Tracks and Certifications where available.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<img src="src/images/mobile_catalog_search000.jpg" alt="Mobile Catalog Search Bar" width="250"/> &nbsp; &nbsp; &nbsp; <img src="src/images/mobile_catalog_course000.jpg" alt="Mobile Catalog Course Example" width="250"/>
 
-### Code Splitting
+<img src="src/images/tablet_catalog000.jpg" alt="Tablet Catalog Course" width="525"/>
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+## Administrative Page
 
-### Analyzing the Bundle Size
+The Admin page is for use by Instructional Designers, Admistrators, and Observers. The Page includes two forms; _Create New Course_ Form and _Delete Course_ Form.
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+<img src="src/images/mobile_admin_create_02000.jpg" alt="Mobile Admin Page" width="250"/> &nbsp; &nbsp; &nbsp; <img src="src/images/mobile_admin_create_01000.jpg" alt="Mobile Admin Add Course Form" width="250"/>
 
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+<img src="src/images/desktop_admin100.jpg" alt="Desktop Home Page" width="525"/>
