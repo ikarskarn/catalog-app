@@ -1,14 +1,14 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import AddCourseForm from "./AddCourseForm";
 
-describe("<SearchBar />", () => {
+describe("<AddCourseForm />", () => {
     it("renders without crashing", () => {
         const div = document.createElement("div");
         ReactDOM.render(
             <BrowserRouter>
-                <SearchBar />
+                <AddCourseForm />
             </BrowserRouter>,
             div
         );
