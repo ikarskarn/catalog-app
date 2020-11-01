@@ -1,8 +1,8 @@
 import React from "react";
-//import STORE from './STORE.js';
 import "./Catalog.css";
 
 function CourseDescriptions(props) {
+    //display courses using props values passed down by Course Section component
     return (
         <section className="course-section">
             <h4 className="course-header">{props.title}</h4>

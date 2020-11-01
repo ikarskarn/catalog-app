@@ -5,6 +5,7 @@ import config from "../../config";
 const Required = () => <span className="AddCourse__required">*</span>;
 
 class AddCourseForm extends React.Component {
+    //reference context
     static contextType = CatalogContext;
 
     //#region State and State Updates
@@ -21,17 +22,21 @@ class AddCourseForm extends React.Component {
 
     //#endregion
 
+    //handles for display
     handleCancelButton = () => {
         const frm = document.getElementById("addCourse");
         frm.reset();
+        //sets choose form buttons to visible
         this.props.updateChooseForm("");
+        //hides add course form
         this.props.updateAddCourse("hidden");
+        //set's page title back to original question
         this.props.updatePageTitle("What would you like to do?");
     };
 
     handleAddCourseRequest = (e) => {
         e.preventDefault();
-        //const id = parseInt(this.context.courses.length + 1);
+        //sets values for request
         const category_id = parseInt(this.state.category);
         const title = this.state.title;
         const course_code = this.state.courseCode;
@@ -47,6 +52,7 @@ class AddCourseForm extends React.Component {
             course_description,
         };
 
+        //gets proper endpoint and header options
         const url = `${config.API_ENDPOINT}/api/courses`;
         const options = {
             method: "POST",
@@ -56,6 +62,7 @@ class AddCourseForm extends React.Component {
             },
         };
 
+        //performs post request to add new course
         fetch(url, options)
             .then((res) => {
                 if (!res.ok) {
@@ -70,6 +77,7 @@ class AddCourseForm extends React.Component {
         this.handleCancelButton();
     };
 
+    //#region state update functions
     updateCategory = (e) => {
         const category = parseInt(e.target.value);
         this.setState({
@@ -111,9 +119,11 @@ class AddCourseForm extends React.Component {
             description,
         });
     };
+    //#endregion
 
     render() {
         const { error } = this.state;
+        //gets list of categories for form dropdown
         const categories = this.context.categories || [];
         const categoryOptions = categories.map((category) => {
             return (
@@ -122,6 +132,7 @@ class AddCourseForm extends React.Component {
                 </option>
             );
         });
+        //gets list of learning tracks for form dropdown
         const learningTracks = this.context.learningTracks || [];
         const learningTrackOptions = learningTracks.map((track) => {
             return (

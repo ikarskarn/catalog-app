@@ -2,6 +2,7 @@ import React from "react";
 import "./Footer.css";
 
 export default function Footer(props) {
+    //basic footer.  Provides links to email, linkedIn, and github
     return (
         <footer className="contact-info rel">
             <p className="contact-item alt">Contact:</p>
@@ -9,7 +10,7 @@ export default function Footer(props) {
                 className="contact-item"
                 href="mailto:devops@pixelgrindgames.com"
                 target="_blank"
-                rel="noopener noreferror"
+                rel="noopener noreferrer"
             >
                 Email
             </a>

@@ -5,21 +5,17 @@ import CatalogContext from "../../CatalogContext.js";
 import Footer from "../Footer/Footer.js";
 
 class Catalog extends React.Component {
+    //reference context
     static contextType = CatalogContext;
+
     constructor(props) {
         super(props);
         this.state = {
             query: "",
-            id: 0,
-            category: 0,
-            title: "",
-            courseCode: "",
-            learningTrack: "",
-            certification: "",
-            description: "",
         };
     }
 
+    //update query state on change
     handleSearch = (e, query) => {
         e.preventDefault();
         this.setState({
@@ -28,8 +24,10 @@ class Catalog extends React.Component {
     };
 
     render() {
+        //set categories to map
         const categories = this.context.categories || [];
-        //const courses = this.context.courses || [];
+        //filter courses by category id and search query
+        //pass prop values to the Catalog Section component
         return (
             <div className="App-list">
                 <SearchBar handleSearch={(e, query) => this.handleSearch(e, query)} />

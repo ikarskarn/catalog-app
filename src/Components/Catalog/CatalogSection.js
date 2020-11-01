@@ -3,8 +3,11 @@ import CourseDescriptions from "./CourseDescriptions.js";
 import "./Catalog.css";
 
 function CatalogSection(props) {
+    //set course to map over
     const courses = props.courses || [];
 
+    //show categories with at least one course
+    //filter courses by category and pass prop values for to course descriptions component
     return (
         <section className={`rel category-section ${courses.length > 0 ? "" : "hidden"}`}>
             <div className="course-title">

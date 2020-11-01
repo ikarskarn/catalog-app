@@ -5,6 +5,7 @@ import config from "../../config";
 const Required = () => <span className="DeleteCourse__required">*</span>;
 
 class DeleteCourseForm extends React.Component {
+    //reference context
     static contextType = CatalogContext;
 
     //#region State and State Updates
@@ -12,15 +13,19 @@ class DeleteCourseForm extends React.Component {
         error: null,
         id: 0,
     };
-
     //#endregion
 
+    //determines visibility of buttons and forms
     handleCancelButton = () => {
+        //sets choose form button visible
         this.props.updateChooseForm("");
+        //hides delete form
         this.props.updateDeleteCourse("hidden");
+        //resets page title to default
         this.props.updatePageTitle("What would you like to do?");
     };
 
+    //updates ID state
     updateID = (e) => {
         e.preventDefault();
         this.setState({
@@ -28,10 +33,12 @@ class DeleteCourseForm extends React.Component {
         });
     };
 
+    //used to sort course list alphabetically
     order = (a, b) => {
         return a.props.children < b.props.children ? -1 : a > b ? 1 : 0;
     };
 
+    //makes a delete request to the api
     handleDeleteCourseRequest = (e) => {
         e.preventDefault();
         const url = `${config.API_ENDPOINT}/api/courses/${this.state.id}`;
@@ -59,6 +66,7 @@ class DeleteCourseForm extends React.Component {
 
     render() {
         const { error } = this.state;
+        //gets list of courses for form dropdown
         const courses = this.context.courses || [];
         const courseOptions = courses
             .sort()
