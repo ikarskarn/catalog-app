@@ -57,7 +57,7 @@ class DeleteCourseForm extends React.Component {
                 }
                 return res;
             })
-            .then(this.context.deleteCourse(parseToInt(this.state.id)))
+            .then(this.context.deleteCourse(this.state.id))
             .catch((error) => {
                 console.error(error);
             });
